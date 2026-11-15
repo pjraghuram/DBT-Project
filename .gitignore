@@ -8,3 +8,17 @@ wheels/
 
 # Virtual environments
 .venv
+
+# dbt artifacts (regenerated on every run)
+target/
+dbt_packages/
+logs/
+.user.yml
+
+# Secrets - never commit credentials
+profiles.yml
+profiles*.yml
+.env
+
+# OS files
+.DS_Store

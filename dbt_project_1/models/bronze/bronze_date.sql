@@ -1,0 +1,1 @@
+select * from {{ source('learning_source', 'dim_date') }}

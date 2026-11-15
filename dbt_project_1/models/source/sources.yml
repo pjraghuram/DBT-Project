@@ -1,0 +1,11 @@
+sources:
+  - name: learning_source
+    database: dbt_project_1  
+    schema: learning_source
+    tables:
+      - name: fact_sales
+      - name: dim_customer
+      - name: dim_product
+      - name: dim_date
+      - name: dim_store
+      - name: fact_returns
