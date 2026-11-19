@@ -26,3 +26,14 @@ models:
   dbt_project_1:
     bronze:
       +materialized: table
+      schema: bronze
+    silver:
+      +materialized: table
+      schema: silver
+    gold:
+      +materialized: table
+      schema: gold  
+
+seeds:
+  dbt_project_1:
+    +schema: bronze

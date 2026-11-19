@@ -2,3 +2,37 @@ models:
   - name: bronze_date
     config:
       materialized: view
+
+  - name: bronze_sales
+    columns:
+      - name: sales_id
+        data_tests:
+          - not_null
+          - unique
+      - name: store_sk
+        data_tests:
+          - not_null
+      - name: gross_amount
+        data_tests:
+          - generic_non_negative_test
+      - name: net_amount
+        data_tests:
+          - generic_non_negative_test
+
+  - name: bronze_store
+    columns:
+      - name: store_name
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['MegaMart Manhattan', 'MegaMart Brooklyn', 'MegaMart Austin', 'MegaMart San Francisco', 'MegaMart Seattle', 'MegaMart Chicago', 'MegaMart Denver', 'MegaMart Boston', 'MegaMart Miami', 'MegaMart San Jose', 'MegaMart Los Angeles', 'MegaMart Dallas', 'MegaMart Philadelphia', 'MegaMart Washington DC', 'MegaMart Atlanta', 'MegaMart Houston', 'MegaMart Phoenix', 'MegaMart Minneapolis', 'MegaMart Orlando', 'MegaMart Toronto']
+              config:
+                severity: warn
+      - name: country
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['USA', 'Canada', 'Mexico']
+              config:
+                severity: warn
+
